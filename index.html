@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>密缝与蓝印 · 昭通蜡染活化与创新设计 H5</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231A2A3A'/%3E%3Ccircle cx='32' cy='32' r='9' fill='none' stroke='%23E5C07B' stroke-width='3'/%3E%3Cg stroke='%23E5C07B' stroke-width='2.4' stroke-linecap='round'%3E%3Cline x1='32' y1='8' x2='32' y2='20'/%3E%3Cline x1='32' y1='44' x2='32' y2='56'/%3E%3Cline x1='8' y1='32' x2='20' y2='32'/%3E%3Cline x1='44' y1='32' x2='56' y2='32'/%3E%3Cline x1='15' y1='15' x2='23' y2='23'/%3E%3Cline x1='41' y1='41' x2='49' y2='49'/%3E%3Cline x1='15' y1='49' x2='23' y2='41'/%3E%3Cline x1='41' y1='23' x2='49' y2='15'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo-950:#101A26;
+  --indigo-900:#1A2A3A;
+  --indigo-800:#203448;
+  --indigo-700:#284560;
+  --indigo-600:#35587E;
+  --indigo-400:#6E93B8;
+  --wax:#E5C07B;
+  --wax-soft:#F2DCA9;
+  --cream:#F3ECDD;
+  --cream-dim:#C6BFAE;
+  --line:rgba(243,236,221,.14);
+  --serif:'Noto Serif SC','Songti SC','STSong',serif;
+  --sans:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--indigo-950);color:var(--cream);font-family:var(--sans);overflow:hidden;font-size:15px;line-height:1.7}
+img{display:block}
+button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
+/* ===== 滚动容器 ===== */
+.scroller{height:100dvh;overflow-y:auto;scroll-snap-type:y proximity;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.page{position:relative;min-height:100dvh;scroll-snap-align:start;overflow:hidden;display:flex;flex-direction:column;padding-bottom:84px}
+.page-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.13;filter:grayscale(.45) contrast(1.05);z-index:0;pointer-events:none}
+.page-bg.ken{animation:ken 26s ease-in-out infinite alternate}
+@keyframes ken{from{transform:scale(1)}to{transform:scale(1.1)}}
+.page-veil{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(16,26,38,.55) 0%,rgba(16,26,38,.35) 42%,rgba(16,26,38,.88) 100%)}
+.page-inner{position:relative;z-index:1;width:100%;max-width:560px;margin:0 auto;padding:56px 22px 20px;display:flex;flex-direction:column;gap:22px;flex:1}
+/* ===== 顶部进度 ===== */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--wax),#d9a75b);z-index:60;border-radius:0 3px 3px 0}
+/* ===== 章节标题 ===== */
+.sec-head{text-align:center}
+.sec-no{font-size:12px;letter-spacing:.42em;color:var(--wax);display:flex;align-items:center;justify-content:center;gap:10px}
+.sec-no::before,.sec-no::after{content:"";height:1px;width:26px;background:linear-gradient(90deg,transparent,var(--wax))}
+.sec-no::after{background:linear-gradient(270deg,transparent,var(--wax))}
+.sec-title{font-family:var(--serif);font-weight:900;font-size:30px;letter-spacing:.06em;margin-top:8px}
+.sec-sub{font-size:13.5px;color:var(--cream-dim);margin-top:8px;letter-spacing:.08em}
+/* ===== 卡片 ===== */
+.card{background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid var(--line);border-radius:14px;padding:16px 18px;position:relative}
+.card-num{font-family:var(--serif);font-size:13px;color:var(--wax);letter-spacing:.2em;display:block;margin-bottom:6px}
+.card h3{font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:.05em;margin-bottom:4px}
+.card p{font-size:13.5px;color:var(--cream-dim)}
+.pain-card{border-color:rgba(229,192,123,.35);background:linear-gradient(160deg,rgba(229,192,123,.10),rgba(229,192,123,.02))}
+.pain-tag{display:inline-block;font-size:11px;letter-spacing:.18em;color:var(--indigo-950);background:var(--wax);border-radius:99px;padding:2px 10px;margin-bottom:8px;font-weight:700}
+.arrow-toggle{margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--wax);letter-spacing:.1em}
+.arrow-toggle svg{transition:transform .3s}
+.arrow-toggle.open svg{transform:rotate(180deg)}
+.compare-body{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed rgba(229,192,123,.3);font-size:13px;color:var(--cream-dim)}
+.compare-body.open{display:block;animation:fadeUp .45s ease}
+.compare-body strong{color:var(--cream);font-weight:600}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* ===== 按钮 ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 26px;border-radius:99px;font-size:15px;letter-spacing:.12em;font-weight:600;transition:transform .18s,opacity .18s;user-select:none}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(120deg,var(--wax),#d8a75c);color:var(--indigo-950);box-shadow:0 8px 24px rgba(229,192,123,.22)}
+.btn-ghost{border:1px solid rgba(243,236,221,.3);color:var(--cream);background:rgba(243,236,221,.05)}
+.btn-sm{min-height:34px;padding:0 14px;font-size:12.5px}
+.btn:disabled{opacity:.35;pointer-events:none}
+/* ===== 底部导航 ===== */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;justify-content:space-around;padding:10px 6px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(16,26,38,0),rgba(16,26,38,.94));backdrop-filter:blur(4px)}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:52px;color:var(--cream-dim);font-size:11px;letter-spacing:.1em;transition:color .25s}
+.nav-item .dot{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(243,236,221,.32);display:flex;align-items:center;justify-content:center;font-size:9.5px;color:var(--cream-dim);transition:all .25s}
+.nav-item.active{color:var(--wax)}
+.nav-item.active .dot{background:var(--wax);border-color:var(--wax);color:var(--indigo-950);font-weight:700}
+/* ===== P1 封面 ===== */
+.cover-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
+.cover-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:60px 24px 110px}
+.cover-kicker{font-size:12px;letter-spacing:.5em;color:var(--cream-dim);text-indent:.5em}
+.wax-svg{width:min(240px,58vw);height:auto;margin:6px 0 4px}
+.wax-svg .wstroke{stroke-dasharray:340;stroke-dashoffset:340;animation:waxdraw 3.2s cubic-bezier(.6,.05,.3,.95) forwards}
+.wax-svg .wstroke.d2{animation-delay:.9s}
+.wax-svg .wstroke.d3{animation-delay:1.7s}
+.wax-svg .wstroke.d4{animation-delay:2.5s}
+@keyframes waxdraw{to{stroke-dashoffset:0}}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:44px;letter-spacing:.14em;text-indent:.14em;line-height:1.3}
+.cover-title .t2{color:var(--wax)}
+.cover-sub{font-family:var(--serif);font-size:15.5px;letter-spacing:.24em;text-indent:.24em;color:var(--cream-dim)}
+.cover-tags{font-size:12px;letter-spacing:.14em;color:var(--cream);opacity:.85;display:flex;flex-wrap:wrap;gap:6px 0;justify-content:center}
+.cover-tags span{padding:0 4px}
+.cover-tags i{font-style:normal;color:var(--wax);padding:0 2px}
+.cover-hint{margin-top:8px;font-size:11.5px;letter-spacing:.3em;color:var(--cream-dim);animation:hintBob 2.2s ease-in-out infinite}
+@keyframes hintBob{0%,100%{transform:translateY(0);opacity:.65}50%{transform:translateY(6px);opacity:1}}
+/* ===== P2 渊源 ===== */
+.cards-grid{display:flex;flex-direction:column;gap:12px}
+/* ===== P3 涂鸦工作室 ===== */
+.page-studio{height:100dvh;overflow:hidden;padding-bottom:0}
+.studio-top{position:relative;z-index:2;padding:18px 16px 8px;display:flex;flex-direction:column;gap:10px}
+.studio-title-row{display:flex;align-items:baseline;gap:10px}
+.studio-title-row .sec-title{font-size:22px;margin:0}
+.studio-title-row .sec-sub{font-size:11.5px;margin:0}
+.steps{display:flex;align-items:center;gap:4px}
+.step{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--cream-dim);letter-spacing:.06em;white-space:nowrap}
+.step .sn{width:17px;height:17px;border-radius:50%;border:1.4px solid rgba(243,236,221,.35);display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .25s}
+.step.on{color:var(--wax)}
+.step.on .sn{background:var(--wax);border-color:var(--wax);color:var(--indigo-950);font-weight:700}
+.step.done{color:var(--cream)}
+.step.done .sn{border-color:var(--wax);color:var(--wax)}
+.step-arrow{color:rgba(243,236,221,.3);font-size:11px}
+.mode-tabs{display:flex;gap:8px}
+.mode-tab{font-size:12px;letter-spacing:.1em;color:var(--cream-dim);border:1px solid var(--line);border-radius:99px;padding:4px 14px;transition:all .22s}
+.mode-tab.on{color:var(--indigo-950);background:var(--wax);border-color:var(--wax);font-weight:600}
+.studio-mid{position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:4px 12px}
+#studioCanvas{width:auto;height:100%;max-width:100%;aspect-ratio:3/4;border-radius:4px;touch-action:none;box-shadow:0 14px 44px rgba(0,0,0,.5);cursor:crosshair}
+.studio-hint{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);font-size:11.5px;letter-spacing:.14em;color:var(--cream-dim);background:rgba(16,26,38,.65);padding:4px 14px;border-radius:99px;pointer-events:none;white-space:nowrap;z-index:3}
+.studio-tools{position:relative;z-index:2;display:flex;flex-direction:column;gap:8px;padding:8px 14px calc(72px + env(safe-area-inset-bottom))}
+.tool-row{display:flex;align-items:center;gap:8px;justify-content:center}
+.tool-label{font-size:11px;letter-spacing:.16em;color:var(--cream-dim);margin-right:2px}
+.swatch{width:30px;height:30px;border-radius:50%;border:2px solid rgba(243,236,221,.28);position:relative;transition:all .2s}
+.swatch.on{border-color:var(--wax);transform:scale(1.12);box-shadow:0 0 0 3px rgba(229,192,123,.25)}
+.swatch.s-wax{background:#E5C07B}
+.swatch.s-cream{background:#F7F2E6}
+.swatch.s-indigo{background:#2B4768;border-color:rgba(243,236,221,.5)}
+.size-btn{width:30px;height:30px;border-radius:8px;border:1.5px solid rgba(243,236,221,.28);display:flex;align-items:center;justify-content:center;color:var(--cream);transition:all .2s}
+.size-btn.on{border-color:var(--wax);color:var(--wax)}
+.size-btn .brush-ic{background:currentColor;border-radius:50%}
+.act-btn{min-height:40px;border-radius:99px;border:1px solid var(--line);font-size:12.5px;letter-spacing:.1em;color:var(--cream-dim);padding:0 16px;display:inline-flex;align-items:center;gap:5px;transition:all .2s}
+.act-btn:active{transform:scale(.96)}
+.act-btn.main{background:linear-gradient(120deg,var(--wax),#d8a75c);color:var(--indigo-950);font-weight:700;border:none}
+.act-btn:disabled{opacity:.35;pointer-events:none}
+.act-btn.ready{border-color:rgba(229,192,123,.55);color:var(--wax)}
+.bg-thumb{width:40px;height:40px;border-radius:8px;background-size:cover;border:1.5px solid rgba(243,236,221,.25);transition:all .2s}
+.bg-thumb.on{border-color:var(--wax);box-shadow:0 0 0 3px rgba(229,192,123,.25)}
+.bg-thumb.empty{display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--cream-dim);border-style:dashed}
+#toolRowMain{flex-wrap:wrap;row-gap:7px}
+.stamp-shelf{position:relative;z-index:3;display:flex;flex-direction:column;gap:6px;padding:0 14px}
+.shelf-head{font-size:11px;letter-spacing:.1em;color:var(--cream-dim);text-align:center}
+.shelf-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.shelf-item{aspect-ratio:1/1;border-radius:6px;background-size:cover;background-position:center;border:1.5px solid rgba(243,236,221,.25);transition:all .2s;min-height:40px}
+.shelf-item.on{border-color:var(--wax);box-shadow:0 0 0 2px rgba(229,192,123,.35)}
+/* ===== P4 图谱 ===== */
+.pattern-cards{display:flex;flex-direction:column;gap:12px}
+.pattern-card{display:flex;gap:14px;align-items:center;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:14px;padding:12px;text-align:left;transition:border-color .25s,transform .2s}
+.pattern-card:active{transform:scale(.98)}
+.pattern-card:hover{border-color:rgba(229,192,123,.45)}
+.pattern-card .thumb{width:76px;height:76px;border-radius:10px;object-fit:cover;flex:none}
+.pattern-card .pc-body{flex:1;min-width:0}
+.pattern-card .pc-name{font-family:var(--serif);font-size:16.5px;font-weight:700;letter-spacing:.05em}
+.pattern-card .pc-desc{font-size:12.5px;color:var(--cream-dim);margin-top:2px}
+.pattern-card .pc-go{color:var(--wax);font-size:20px;flex:none}
+.gene-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.gene-chip{font-size:12px;letter-spacing:.08em;border:1px solid var(--line);border-radius:99px;padding:5px 14px;color:var(--cream-dim);transition:all .2s}
+.gene-chip.on{border-color:var(--wax);color:var(--wax);background:rgba(229,192,123,.08)}
+/* 全屏查看 */
+.modal{position:fixed;inset:0;z-index:80;display:none}
+.modal.open{display:block}
+.modal-mask{position:absolute;inset:0;background:rgba(10,16,24,.88);backdrop-filter:blur(6px)}
+.modal-body{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;padding:56px 18px 90px;gap:14px;animation:fadeUp .35s ease}
+.modal-imgwrap{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.modal-imgwrap img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 18px 60px rgba(0,0,0,.55)}
+.pin{position:absolute;transform:translate(-50%,-50%);display:none;align-items:center;gap:5px;pointer-events:none;white-space:nowrap}
+.pin.show{display:flex;animation:pinPop .3s ease}
+@keyframes pinPop{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.pin .pdot{width:9px;height:9px;border-radius:50%;background:var(--wax);box-shadow:0 0 0 4px rgba(229,192,123,.35)}
+.pin .plabel{font-size:12px;letter-spacing:.1em;color:var(--indigo-950);background:var(--wax);border-radius:4px;padding:1px 8px}
+.modal-close{position:absolute;top:12px;right:14px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid rgba(243,236,221,.3);color:var(--cream);font-size:20px;line-height:1}
+.modal-meta{text-align:center}
+.modal-name{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:.08em}
+.modal-desc{font-size:12.5px;color:var(--cream-dim);margin-top:6px;max-width:440px;margin-left:auto;margin-right:auto}
+/* ===== P5 新生 ===== */
+.palette{display:flex;gap:10px;justify-content:center}
+.pal-swatch{width:56px;text-align:center}
+.pal-swatch .pc{width:56px;height:56px;border-radius:50%;margin:0 auto;border:1px solid rgba(243,236,221,.2)}
+.pal-swatch .pl{font-size:10.5px;color:var(--cream-dim);margin-top:4px;letter-spacing:.04em}
+.compare{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;touch-action:none;user-select:none}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .top{clip-path:inset(0 0 0 calc(var(--pos,50)*1%));filter:saturate(1.45) hue-rotate(-8deg) brightness(1.14) contrast(1.08)}
+.compare .top::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(229,192,123,.16),rgba(43,71,104,.05))}
+.compare .handle{position:absolute;top:0;bottom:0;left:calc(var(--pos,50)*1%);width:2px;background:var(--wax);transform:translateX(-1px)}
+.compare .handle::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:var(--wax);border:3px solid var(--indigo-900);box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.compare .c-label{position:absolute;top:10px;font-size:11px;letter-spacing:.12em;padding:3px 10px;border-radius:99px;background:rgba(16,26,38,.6);color:var(--cream-dim)}
+.compare .c-label.l{left:10px}
+.compare .c-label.r{right:10px;color:var(--wax)}
+.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.prod{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.prod .p-ic{width:38px;height:38px;border-radius:9px;background:var(--indigo-800);display:flex;align-items:center;justify-content:center;color:var(--wax)}
+.prod .p-name{font-size:13.5px;font-weight:600;letter-spacing:.06em}
+.prod .p-desc{font-size:11.5px;color:var(--cream-dim);line-height:1.55}
+.prod .p-pat{font-size:10.5px;color:var(--wax);letter-spacing:.1em;opacity:.85}
+/* ===== P6 传播 ===== */
+.poster-builder{display:flex;flex-direction:column;gap:12px;padding:16px;background:linear-gradient(160deg,rgba(229,192,123,.07),rgba(255,255,255,.02));border:1px solid rgba(229,192,123,.3);border-radius:16px}
+.poster-preview{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:3/4;background:var(--indigo-800)}
+.poster-preview img{width:100%;height:100%;object-fit:cover}
+.poster-preview .pp-note{position:absolute;left:0;right:0;bottom:0;padding:6px 10px;font-size:11px;color:var(--cream-dim);background:rgba(16,26,38,.72);letter-spacing:.06em}
+.poster-ops{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.poster-ops .op-group{display:flex;gap:6px;align-items:center}
+.op-label{font-size:11px;letter-spacing:.14em;color:var(--cream-dim);margin-right:2px}
+.seg{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.seg button{font-size:12px;letter-spacing:.04em;padding:6px 12px;color:var(--cream-dim);transition:all .2s}
+.seg button.on{background:var(--wax);color:var(--indigo-950);font-weight:600}
+.present-cards{display:flex;flex-direction:column;gap:10px}
+.present-card{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.present-card .pnum{flex:none;width:30px;height:30px;border-radius:8px;border:1px solid rgba(229,192,123,.5);color:var(--wax);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:13px}
+.present-card .pt{font-size:13.5px;font-weight:600;letter-spacing:.05em}
+.present-card .pd{font-size:12px;color:var(--cream-dim);margin-top:2px}
+.checklist summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--wax);letter-spacing:.1em;padding:8px 0}
+.checklist summary::before{content:"+";font-size:15px;transition:transform .25s}
+.checklist[open] summary::before{transform:rotate(45deg)}
+.checklist .cl-item{font-size:12.5px;color:var(--cream-dim);padding:4px 0 4px 18px;position:relative}
+.checklist .cl-item::before{content:"";position:absolute;left:4px;top:12px;width:5px;height:5px;background:var(--wax);border-radius:50%}
+.final-quote{text-align:center;padding:10px 0}
+.final-quote .fq{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.12em;color:var(--wax-soft)}
+.final-quote .fs{font-size:12px;color:var(--cream-dim);letter-spacing:.22em;margin-top:6px}
+.ending{display:flex;flex-direction:column;align-items:center;gap:10px;padding:6px 0 10px}
+/* ===== toast ===== */
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);z-index:90;background:rgba(10,16,24,.92);border:1px solid rgba(229,192,123,.4);color:var(--cream);font-size:13px;letter-spacing:.06em;padding:9px 20px;border-radius:99px;opacity:0;pointer-events:none;transition:opacity .3s;white-space:nowrap}
+.toast.show{opacity:1}
+/* ===== 响应式桌面 ===== */
+@media (min-width:768px){
+  .page-inner{max-width:640px}
+  .cards-grid{flex-direction:row;gap:14px}
+  .cards-grid .card{flex:1}
+  .prod-grid{grid-template-columns:repeat(3,1fr)}
+  .pattern-cards{flex-direction:row}
+  .pattern-card{flex:1;flex-direction:column;text-align:center}
+  .pattern-card .thumb{width:100%;height:150px}
+  .pattern-card .pc-go{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+
+<main class="scroller" id="scroller">
+
+<!-- ===== 视图 P1 封面 ===== -->
+<section class="page" id="p1">
+  <div class="page-bg ken" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BaTabU1sUozbrPxwKyhcM9YtnEd')"></div>
+  <div class="page-veil" style="background:linear-gradient(180deg,rgba(16,26,38,.82),rgba(16,26,38,.42) 50%,rgba(16,26,38,.9))"></div>
+  <canvas class="cover-canvas" id="coverCanvas"></canvas>
+  <div class="cover-inner">
+    <div class="cover-kicker">昭通蜡染活化与创新设计 H5</div>
+    <svg class="wax-svg" viewBox="0 0 240 120" fill="none" aria-hidden="true">
+      <g stroke="#E5C07B" stroke-width="2" stroke-linecap="round">
+        <path class="wstroke" d="M120 30 V20 M96 40 L88 31 M144 40 L152 31 M78 58 L66 56 M162 58 L174 56 M84 84 L76 95 M156 84 L164 95 M120 102 V112 M106 94 L98 103 M134 94 L142 103"/>
+        <path class="wstroke d2" d="M120 40 m0 -10 a10 10 0 1 1 -0.1 0z M120 40 m0 -20 a20 20 0 1 1 -0.1 0z M120 40 m0 -30 a30 30 0 1 1 -0.1 0z"/>
+        <path class="wstroke d3" d="M30 96 H210 M26 102 H214"/>
+        <path class="wstroke d4" d="M40 110 h14 M66 110 h14 M92 110 h14 M118 110 h14 M144 110 h14 M170 110 h14 M196 110 h14"/>
+      </g>
+    </svg>
+    <h1 class="cover-title">密缝与<span class="t2">蓝印</span></h1>
+    <p class="cover-sub">昭通蜡染的文化基因与现代新生</p>
+    <div class="cover-tags"><span>非遗文化微体验</span><i>·</i><span>现代文创品牌展示</span><i>·</i><span>互动体验</span></div>
+    <button class="btn btn-primary" id="btnStart" style="margin-top:10px">开始体验</button>
+    <div class="cover-hint">下滑进入 · 共六章</div>
+  </div>
+</section>
+
+<!-- ===== 视图 P2 山高水长 ===== -->
+<section class="page" id="p2">
+  <div class="page-bg ken" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/WSCbbOfgFohLmkxROi8c0a3fnrd')"></div>
+  <div class="page-veil"></div>
+  <div class="page-inner">
+    <header class="sec-head">
+      <div class="sec-no">01 · 山高水长</div>
+      <h2 class="sec-title">文化渊源</h2>
+      <p class="sec-sub">乌蒙山起，金沙水长——蓝靛与蜂蜡，在布面上相遇成纹</p>
+    </header>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-num">山</span>
+        <h3>地理根脉</h3>
+        <p>昭通地处滇东北乌蒙山区，金沙江穿境而过。山高谷深、多民族聚居，蜡染在这片土地上世代相传。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">水</span>
+        <h3>蓝染之源</h3>
+        <p>以蓝靛为墨、蜂蜡为笔。蜡刀点蜡防染，靛蓝浸染成布——蓝白之间，是山水的自然物语。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">长</span>
+        <h3>纹样记忆</h3>
+        <p>苗、彝等民族把太阳、花鸟、鱼蝶、卷草化为纹样，经纬之间藏着族群迁徙的记忆与祝福。</p>
+      </div>
+    </div>
+    <div class="card pain-card">
+      <span class="pain-tag">认知痛点</span>
+      <p>大众对昭通蜡染了解较少，易与贵州蜡染混淆——同源共流，但各有其韵。</p>
+      <button class="arrow-toggle" id="compareToggle">
+        昭通 × 贵州，一探究竟
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="compare-body" id="compareBody">
+        <p><strong>贵州蜡染</strong>：以丹寨、安顺为典型代表，纹样繁密、题材丰富，白描线条细腻多变，为大众所熟知。</p>
+        <p style="margin-top:8px"><strong>昭通蜡染</strong>：同属蜡染体系，自有乌蒙山地的质朴气质。本研究以「密缝与蓝印」重新梳理其文化基因，让昭通蜡染被看见、被记住。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图 P3 指尖成纹 · 涂鸦工作室 ===== -->
+<section class="page page-studio" id="p3">
+  <div class="page-bg" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YI7hb8u2DoS1Nexqsxlc1p6indh')"></div>
+  <div class="page-veil" style="background:linear-gradient(180deg,rgba(16,26,38,.9),rgba(16,26,38,.62) 45%,rgba(16,26,38,.96))"></div>
+  <div class="studio-top">
+    <div class="studio-title-row">
+      <h2 class="sec-title">指尖成纹</h2>
+      <span class="sec-sub">核心工艺互动模拟</span>
+    </div>
+    <div class="mode-tabs">
+      <button class="mode-tab on" id="modeCraft" type="button">工艺模拟 · 划蜡 / 浸染 / 冰裂</button>
+      <button class="mode-tab" id="modeFree" type="button">自由涂鸦</button>
+    </div>
+    <div class="steps" id="steps">
+      <span class="step on" data-s="0"><span class="sn">1</span>划蜡</span>
+      <span class="step-arrow">›</span>
+      <span class="step" data-s="1"><span class="sn">2</span>浸染</span>
+      <span class="step-arrow">›</span>
+      <span class="step" data-s="2"><span class="sn">3</span>冰裂</span>
+      <span class="step-arrow">›</span>
+      <span class="step" data-s="3"><span class="sn">4</span>成品</span>
+    </div>
+  </div>
+  <div class="studio-mid" id="studioWrap">
+    <canvas id="studioCanvas"></canvas>
+    <div class="studio-hint" id="studioHint">以蜡为笔 · 在布面上画出你的纹样</div>
+  </div>
+  <div class="studio-tools">
+    <div class="tool-row" id="toolRowMain">
+      <span class="tool-label">笔色</span>
+      <button class="swatch s-wax on" data-color="wax" type="button" title="蜡黄"></button>
+      <button class="swatch s-cream" data-color="cream" type="button" title="米白"></button>
+      <button class="swatch s-indigo" data-color="indigo" type="button" title="靛蓝"></button>
+      <span class="tool-label" style="margin-left:8px">笔</span>
+      <button class="size-btn on" data-size="0" type="button"><span class="brush-ic" style="width:5px;height:5px"></span></button>
+      <button class="size-btn" data-size="1" type="button"><span class="brush-ic" style="width:9px;height:9px"></span></button>
+      <button class="size-btn" data-size="2" type="button"><span class="brush-ic" style="width:14px;height:14px"></span></button>
+      <span id="stampGroup" style="display:flex;align-items:center;gap:6px">
+        <span class="tool-label" style="margin-left:8px">印章</span>
+        <button class="act-btn" id="stampSun" type="button" title="在画布上点按落章">太阳纹</button>
+        <button class="act-btn" id="stampBorder" type="button" title="沿画布边缘点按落章">回纹边</button>
+      </span>
+      <span id="motifGroup" style="display:none;align-items:center;gap:6px">
+        <span class="tool-label" style="margin-left:8px">纹样</span>
+        <button class="act-btn" id="btnShelf" type="button" title="打开纹样库自由组合">纹样库</button>
+        <button class="act-btn" id="motifSmall" type="button" title="小尺寸">小</button>
+        <button class="act-btn on" id="motifMid" type="button" title="中尺寸">中</button>
+        <button class="act-btn" id="motifLarge" type="button" title="大尺寸">大</button>
+        <button class="act-btn" id="motifRot" type="button" title="旋转 45°">旋转</button>
+      </span>
+    </div>
+    <div class="tool-row" id="toolRowArtBg">
+      <span class="tool-label">底图</span>
+      <button class="bg-thumb empty on" data-art="0" type="button" title="空白布面">空</button>
+      <button class="bg-thumb" data-art="1" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/X3fIbMOMKoCHVJxA3aqcUFhLnqb')" type="button" title="仕女凤凰线稿"></button>
+      <button class="bg-thumb" data-art="2" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/OGItbZI1go5bUtxbU3ccdrz8noc')" type="button" title="长发线稿"></button>
+    </div>
+    <div class="tool-row" id="toolRowBg" style="display:none">
+      <span class="tool-label">底纹</span>
+      <button class="bg-thumb on" data-bg="0" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BaTabU1sUozbrPxwKyhcM9YtnEd')" type="button" title="太阳放射纹"></button>
+      <button class="bg-thumb" data-bg="1" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/WSCbbOfgFohLmkxROi8c0a3fnrd')" type="button" title="花鸟万象纹"></button>
+      <button class="bg-thumb" data-bg="2" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YI7hb8u2DoS1Nexqsxlc1p6indh')" type="button" title="八角乾坤纹"></button>
+    </div>
+    <div class="stamp-shelf" id="stampShelf" style="display:none">
+      <div class="shelf-head">点选纹样 → 点按画布放置（可连续放置，再点「纹样库」收起）</div>
+      <div class="shelf-grid" id="shelfGrid"></div>
+    </div>
+    <div class="tool-row">
+      <button class="act-btn" id="btnUndo" type="button">撤销</button>
+      <button class="act-btn" id="btnClear" type="button">清空</button>
+      <button class="act-btn main" id="btnAction" type="button">浸染</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图 P4 纹样图谱 ===== -->
+<section class="page" id="p4">
+  <div class="page-bg" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/WSCbbOfgFohLmkxROi8c0a3fnrd')"></div>
+  <div class="page-veil"></div>
+  <div class="page-inner">
+    <header class="sec-head">
+      <div class="sec-no">03 · 纹样图谱</div>
+      <h2 class="sec-title">视觉基因解构</h2>
+      <p class="sec-sub">太阳、回纹、花鸟鱼蝶、卷草、八角、水波——被反复书写的文化母题，点击纹样查看基因</p>
+    </header>
+    <div class="pattern-cards" id="patternCards"></div>
+    <div class="gene-chips" id="geneChips"></div>
+    <p style="text-align:center;font-size:11.5px;color:var(--cream-dim);letter-spacing:.12em">图像素材 · 高清纹样矢量图（SVG）· 昭通实景摄影 · 文创 Mockup 效果图</p>
+  </div>
+</section>
+
+<!-- ===== 视图 P5 现代新生 ===== -->
+<section class="page" id="p5">
+  <div class="page-bg" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BaTabU1sUozbrPxwKyhcM9YtnEd')"></div>
+  <div class="page-veil"></div>
+  <div class="page-inner">
+    <header class="sec-head">
+      <div class="sec-no">04 · 现代新生</div>
+      <h2 class="sec-title">创新设计展厅</h2>
+      <p class="sec-sub">从「静态文化展示」到「动态美学感知与品牌买单」</p>
+    </header>
+    <div class="card pain-card">
+      <span class="pain-tag">转化痛点</span>
+      <p>让传统纹样走出展柜，进入日常生活的触感——旧纹新织，蓝印新生。</p>
+    </div>
+    <div class="palette">
+      <div class="pal-swatch"><div class="pc" style="background:#1A2A3A"></div><div class="pl">传统靛蓝 #1A2A3A</div></div>
+      <div class="pal-swatch"><div class="pc" style="background:#E5C07B"></div><div class="pl">蜡黄点缀 #E5C07B</div></div>
+      <div class="pal-swatch"><div class="pc" style="background:#F3ECDD"></div><div class="pl">极简留白</div></div>
+    </div>
+    <div class="compare" id="compareSlider">
+      <img class="base" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/WSCbbOfgFohLmkxROi8c0a3fnrd" alt="原始纹样">
+      <img class="top" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/WSCbbOfgFohLmkxROi8c0a3fnrd" alt="现代演绎">
+      <div class="handle"></div>
+      <span class="c-label l">原始纹样</span>
+      <span class="c-label r">现代演绎</span>
+    </div>
+    <div class="prod-grid" id="prodGrid"></div>
+    <button class="btn btn-primary" id="btnToPoster" style="align-self:center">去生成你的专属纹样</button>
+  </div>
+</section>
+
+<!-- ===== 视图 P6 专属生成与传播 ===== -->
+<section class="page" id="p6">
+  <div class="page-bg" style="background-image:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YI7hb8u2DoS1Nexqsxlc1p6indh')"></div>
+  <div class="page-veil"></div>
+  <div class="page-inner">
+    <header class="sec-head">
+      <div class="sec-no">05 · 密缝与蓝印</div>
+      <h2 class="sec-title">专属生成与传播</h2>
+      <p class="sec-sub">体验闭环 · 吸引 → 探索 → 沉浸 → 感染 → 分享</p>
+    </header>
+    <div class="poster-builder">
+      <div class="poster-preview" id="posterPreview"><img id="posterImg" alt="海报预览"><div class="pp-note" id="ppNote">预览 · 生成后可保存</div></div>
+      <div class="poster-ops">
+        <div class="op-group">
+          <span class="op-label">底纹</span>
+          <div class="seg" id="posterBgSeg">
+            <button data-bg="0" type="button" class="on">太阳</button>
+            <button data-bg="1" type="button">花鸟</button>
+            <button data-bg="2" type="button">八角</button>
+          </div>
+        </div>
+        <div class="op-group">
+          <span class="op-label">标语</span>
+          <div class="seg" id="posterSloganSeg">
+            <button data-sg="0" type="button" class="on">一</button>
+            <button data-sg="1" type="button">二</button>
+            <button data-sg="2" type="button">三</button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button class="btn btn-primary btn-sm" id="btnGenPoster">生成海报</button>
+        <a class="btn btn-ghost btn-sm" id="btnDownload" download="密缝与蓝印-专属纹样海报.png" href="#" style="text-decoration:none">保存图片</a>
+      </div>
+    </div>
+    <div class="present-cards">
+      <div class="present-card"><span class="pnum">一</span><div><div class="pt">微信端移动 H5 链接与二维码</div><div class="pd">毕业答辩现场扫码即达，沉浸体验完整方案</div></div></div>
+      <div class="present-card"><span class="pnum">二</span><div><div class="pt">演示动态视频（录屏 + 剪辑）</div><div class="pd">答辩展板 / PPT 播放，快速呈现核心亮点</div></div></div>
+      <div class="present-card"><span class="pnum">三</span><div><div class="pt">离线展厅交互大屏版</div><div class="pd">毕设展览现场触摸屏交互，人人可上手涂鸦</div></div></div>
+    </div>
+    <details class="checklist">
+      <summary>素材筹备清单</summary>
+      <div class="cl-item">图像素材 · 高清纹样矢量图（SVG）、昭通实景摄影、文创 Mockup 效果图</div>
+      <div class="cl-item">动效素材 · 蜂蜡融化视频 / GIF、冰裂纹扩散粒子动画、页面转场遮罩</div>
+      <div class="cl-item">音频素材 · 环境背景音（采风风声 / 染缸水声）、按键音效、配音讲解（可选）</div>
+      <div class="cl-item">文本素材 · 论文第二 / 三章提炼文案、民俗故事短句</div>
+    </details>
+    <div class="final-quote">
+      <div class="fq">一针密缝，万蓝归心</div>
+      <div class="fs">昭通蜡染活化与创新设计 · 毕业设计 H5</div>
+    </div>
+    <div class="ending">
+      <button class="btn btn-ghost" id="btnReplay">重新体验</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 底部导航 ===== -->
+<nav class="nav" id="nav" aria-label="章节导航">
+  <button class="nav-item active" data-nav="p1" type="button"><span class="dot">1</span>封面</button>
+  <button class="nav-item" data-nav="p2" type="button"><span class="dot">2</span>渊源</button>
+  <button class="nav-item" data-nav="p3" type="button"><span class="dot">3</span>指尖</button>
+  <button class="nav-item" data-nav="p4" type="button"><span class="dot">4</span>图谱</button>
+  <button class="nav-item" data-nav="p5" type="button"><span class="dot">5</span>新生</button>
+  <button class="nav-item" data-nav="p6" type="button"><span class="dot">6</span>传播</button>
+</nav>
+
+<!-- ===== P4 纹样全屏查看 ===== -->
+<div class="modal" id="pmModal" role="dialog" aria-label="纹样详情">
+  <div class="modal-mask" id="pmMask"></div>
+  <button class="modal-close" id="pmClose" type="button" aria-label="关闭">×</button>
+  <div class="modal-body">
+    <div class="modal-imgwrap"><img id="pmImg" alt="纹样大图"><div id="pmPins"></div></div>
+    <div class="modal-meta">
+      <div class="modal-name" id="pmName"></div>
+      <div class="modal-desc" id="pmDesc"></div>
+      <div class="gene-chips" id="pmChips" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+/* ===== 常量与工具 ===== */
+const IMG = {
+  sun:'https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BaTabU1sUozbrPxwKyhcM9YtnEd',
+  flora:'https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/WSCbbOfgFohLmkxROi8c0a3fnrd',
+  octagon:'https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YI7hb8u2DoS1Nexqsxlc1p6indh',
+  maiden:'https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/X3fIbMOMKoCHVJxA3aqcUFhLnqb',
+  girl1:'https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/OGItbZI1go5bUtxbU3ccdrz8noc',
+  grid:'https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/U80JbC6bLoLT7CxyBMuclCZ5nTf'
+};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const rand=(a,b)=>a+Math.random()*(b-a);
+const lerp=(a,b,t)=>a+(b-a)*t;
+function lerpColor(c1,c2,t){
+  const r1=parseInt(c1.slice(1,3),16),g1=parseInt(c1.slice(3,5),16),b1=parseInt(c1.slice(5,7),16);
+  const r2=parseInt(c2.slice(1,3),16),g2=parseInt(c2.slice(3,5),16),b2=parseInt(c2.slice(5,7),16);
+  const h=n=>Math.round(n).toString(16).padStart(2,'0');
+  return '#'+h(lerp(r1,r2,t))+h(lerp(g1,g2,t))+h(lerp(b1,b2,t));
+}
+function toast(msg){
+  const t=$('#toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2200);
+}
+/* ===== 章节导航与进度 ===== */
+const scroller=$('#scroller');
+$$('.nav-item').forEach(btn=>btn.addEventListener('click',()=>{
+  const el=document.getElementById(btn.dataset.nav);
+  scroller.scrollTo({top:el.offsetTop,behavior:'smooth'});
+}));
+let activePage='p1';
+const pageObs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      activePage=e.target.id;
+      $$('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.nav===activePage));
+    }
+  });
+},{root:scroller,threshold:0.55});
+$$('.page').forEach(p=>pageObs.observe(p));
+scroller.addEventListener('scroll',()=>{
+  const max=scroller.scrollHeight-scroller.clientHeight;
+  $('#progressBar').style.width=(max>0?scroller.scrollTop/max*100:0)+'%';
+},{passive:true});
+$('#btnStart').addEventListener('click',()=>scroller.scrollTo({top:$('#p2').offsetTop,behavior:'smooth'}));
+$('#btnToPoster').addEventListener('click',()=>scroller.scrollTo({top:$('#p6').offsetTop,behavior:'smooth'}));
+$('#btnReplay').addEventListener('click',()=>scroller.scrollTo({top:0,behavior:'smooth'}));
+/* ===== P1 封面粒子 ===== */
+const cv=$('#coverCanvas'),cctx=cv.getContext('2d');
+let parts=[],coverOn=true;
+const coverObs=new IntersectionObserver(es=>{
+  coverOn=es[0].isIntersecting;
+  if(coverOn&&parts.length===0)spawnParts();
+},{threshold:.2});
+coverObs.observe($('#p1'));
+function sizeCover(){
+  const r=$('#p1').getBoundingClientRect();
+  cv.width=r.width*devicePixelRatio;cv.height=r.height*devicePixelRatio;
+  cv.style.width=r.width+'px';cv.style.height=r.height+'px';
+}
+function spawnParts(){
+  const r=$('#p1').getBoundingClientRect(),N=34;
+  parts=Array.from({length:N},()=>({
+    x:rand(0,r.width),y:rand(0,r.height),
+    vx:rand(-.18,.18),vy:rand(-.42,-.12),
+    r:rand(1,3.2),wax:Math.random()<.38,
+    a:rand(.15,.6),ph:rand(0,Math.PI*2)
+  }));
+}
+sizeCover();spawnParts();
+addEventListener('resize',()=>{sizeCover();spawnParts();});
+let lastT=0;
+function tick(t){
+  requestAnimationFrame(tick);
+  if(!coverOn)return;
+  const dt=Math.min(.05,(t-lastT)/1000||.016);lastT=t;
+  const r=$('#p1').getBoundingClientRect();
+  cctx.clearRect(0,0,cv.width,cv.height);
+  cctx.save();cctx.scale(devicePixelRatio,devicePixelRatio);
+  parts.forEach(p=>{
+    p.y-=p.vy*dt*30;p.x+=p.vx*dt*30+p.ph*.02;
+    if(p.y<-8){p.y=r.height+8;p.x=rand(0,r.width);}
+    if(p.x<-8)p.x=r.width+8;if(p.x>r.width+8)p.x=-8;
+    cctx.beginPath();
+    cctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    cctx.fillStyle=p.wax?`rgba(229,192,123,${p.a})`:`rgba(110,147,184,${p.a*.9})`;
+    cctx.fill();
+  });
+  cctx.restore();
+}
+requestAnimationFrame(tick);
+/* ===== P2 昭通 × 贵州 ===== */
+$('#compareToggle').addEventListener('click',function(){
+  const open=this.classList.toggle('open');
+  $('#compareBody').classList.toggle('open',open);
+});
+/* ===== P4 纹样图谱 ===== */
+const PATTERNS=[
+  {id:'sun',name:'太阳放射纹',img:IMG.sun,
+   desc:'中心太阳为母题，放射状三角与圆点模拟光芒；四周回纹锁边，织物呈刺绣般的肌理。',
+   genes:[['太阳纹',50,38],['放射光芒',50,20],['三角尖刺',68,60],['回纹边框',50,90]]},
+  {id:'flora',name:'花鸟万象纹',img:IMG.flora,
+   desc:'回纹框内的太阳统领四方：花卉、飞鸟、蝴蝶、游鱼对称铺陈，卷草缠枝，网格为底。',
+   genes:[['太阳纹',50,42],['花鸟鱼蝶',28,74],['飞鸟蝴蝶',72,26],['卷草边框',88,52]]},
+  {id:'octagon',name:'八角乾坤纹',img:IMG.octagon,
+   desc:'八角框定乾坤，中心多层放射圆纹如日轮；四角飞鸟、四向花卉，藤蔓卷草间有水波回环。',
+   genes:[['八角框',50,8],['多层放射圆',50,46],['四角飞鸟',22,22],['水波卷草',50,92]]}
+];
+const geneAll=['太阳纹','回纹','花鸟鱼蝶','卷草','八角','水波','放射','飞鸟'];
+function buildP4(){
+  const wrap=$('#patternCards');
+  wrap.innerHTML=PATTERNS.map((p,i)=>`
+    <button class="pattern-card" data-i="${i}" type="button">
+      <img class="thumb" src="${p.img}" alt="${p.name}">
+      <span class="pc-body">
+        <span class="pc-name">${p.name}</span>
+        <span class="pc-desc" style="display:block">${p.genes.slice(0,3).map(g=>g[0]).join(' · ')}</span>
+      </span>
+      <span class="pc-go">›</span>
+    </button>`).join('');
+  $('#geneChips').innerHTML=geneAll.map(g=>`<span class="gene-chip" data-g="${g}">${g}</span>`).join('');
+  wrap.addEventListener('click',e=>{
+    const card=e.target.closest('.pattern-card');
+    if(card)openModal(+card.dataset.i);
+  });
+}
+const modal=$('#pmModal');
+function openModal(i){
+  const p=PATTERNS[i];
+  $('#pmImg').src=p.img;$('#pmName').textContent=p.name;$('#pmDesc').textContent=p.desc;
+  $('#pmPins').innerHTML=p.genes.map((g,k)=>`<span class="pin" data-k="${k}" style="left:${g[1]}%;top:${g[2]}%"><span class="pdot"></span><span class="plabel">${g[0]}</span></span>`).join('');
+  $('#pmChips').innerHTML=p.genes.map((g,k)=>`<button class="gene-chip" data-k="${k}" type="button">${g[0]}</button>`).join('');
+  $('#pmChips').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    const k=+b.dataset.k,on=b.classList.toggle('on');
+    $('#pmPins').querySelector(`.pin[data-k="${k}"]`).classList.toggle('show',on);
+  }));
+  modal.classList.add('open');
+}
+$('#pmClose').addEventListener('click',()=>modal.classList.remove('open'));
+$('#pmMask').addEventListener('click',()=>modal.classList.remove('open'));
+/* ===== P5 产品展厅 ===== */
+const PRODS=[
+  {n:'帆布包',d:'把太阳纹背在肩上，日常即展陈',p:'太阳放射纹',ic:'M4 7h16l-2 13H6L4 7zm4 0l2 5h4l2-5' },
+  {n:'真丝丝巾',d:'蓝白缠绕颈间，纹样随人体流动',p:'花鸟万象纹',ic:'M5 6c4-3 10-3 14 0s-1 6-4 7 2 6-3 6-7-3-7-6-6-4-3-3-1-2 1-4z'},
+  {n:'手机壳',d:'掌心的微型蜡染展，一触即见',p:'八角乾坤纹',ic:'M8 3h8a1 1 0 011 1v16a1 1 0 01-1 1H8a1 1 0 01-1-1V4a1 1 0 011-1zm3 15h2'},
+  {n:'茶具杯',d:'冰裂纹在杯沿开出窑变的釉',p:'冰裂纹',ic:'M6 11h12l-1 7H7l-1-7zm2 0l2-4h4l2 4M8 14h8'},
+  {n:'草木香囊',d:'蜂蜡与草木的嗅觉记忆',p:'回纹·卷草',ic:'M7 9l3-4h4l3 4 2 4H5l2-4zm-1 6l2 4m8-4l-2 4M12 13v6'},
+  {n:'帆布鞋',d:'每一步都踩过乌蒙山的纹路',p:'八角·水波',ic:'M4 16c3 2 13 2 16 0l1-4H3l1 4zM5 12h14M8 8h8'}
+];
+function buildP5(){
+  $('#prodGrid').innerHTML=PRODS.map(p=>`
+    <div class="prod">
+      <span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${p.ic}"/></svg></span>
+      <span class="p-name">${p.n}</span>
+      <span class="p-desc">${p.d}</span>
+      <span class="p-pat">纹样 · ${p.p}</span>
+    </div>`).join('');
+}
+/* 对比滑杆 */
+const cs=$('#compareSlider');
+function setPos(px){
+  const r=cs.getBoundingClientRect();
+  const pos=clamp((px-r.left)/r.width*100,4,96);
+  cs.style.setProperty('--pos',pos);
+}
+cs.addEventListener('pointerdown',e=>{
+  cs.setPointerCapture(e.pointerId);setPos(e.clientX);
+});
+cs.addEventListener('pointermove',e=>{
+  if(e.buttons)setPos(e.clientX);
+});
+cs.addEventListener('pointerup',()=>{});
+/* ===== 启动 ===== */
+buildP4();buildP5();
+/* ===== P3 涂鸦工作室 ===== */
+const stud=$('#studioCanvas'),sctx=stud.getContext('2d');
+const LOGW=900,LOGH=1200;
+const COLOR_HEX={wax:'#E5C07B',cream:'#F7F2E6',indigo:'#2B4768'};
+const COLOR_RGBA={wax:'rgba(229,192,123,.92)',cream:'rgba(247,242,230,.9)',indigo:'rgba(43,71,104,.92)'};
+const FABRIC_A='#EFE7D3',FABRIC_B='#1A2A3A',CREAM_LINE='#F3ECDD';
+const PAT_BG=[IMG.sun,IMG.flora,IMG.octagon];
+const PAT_IMGS=PAT_BG.map(u=>{const im=new Image();im.crossOrigin='anonymous';im.src=u;return im;});
+/* 工艺模拟 · 底图线稿（3 张，粘贴上布并参与浸染） */
+const ART_BG_IMGS=[IMG.maiden,IMG.girl1].map(u=>{const im=new Image();im.crossOrigin='anonymous';im.src=u;return im;});
+const artBgPrep=[null,null,null];
+let artBgIdx=0;
+function prepArtBg(i){
+  const img=ART_BG_IMGS[i];
+  if(!img.complete){img.onload=()=>prepArtBg(i);return;}
+  const make=dyed=>{
+    const c=document.createElement('canvas');c.width=LOGW;c.height=LOGH;
+    const x=c.getContext('2d');
+    const sc=Math.max(LOGW/img.width,LOGH/img.height);
+    const dw=img.width*sc,dh=img.height*sc;
+    x.drawImage(img,(LOGW-dw)/2,(LOGH-dh)/2,dw,dh);
+    const id=x.getImageData(0,0,LOGW,LOGH),d=id.data;
+    for(let k=0;k<d.length;k+=4){
+      const g=0.299*d[k]+0.587*d[k+1]+0.114*d[k+2];
+      if(dyed){d[k]=14+g/255*16;d[k+1]=28+g/255*24;d[k+2]=46+g/255*22;}
+      else{d[k]=d[k+1]=d[k+2]=g;}
+    }
+    x.putImageData(id,0,0);
+    return c;
+  };
+  artBgPrep[i]={orig:make(false),dyed:make(true)};
+  render();
+}
+/* 浸染 · 冰裂：程序生成随机皲裂纹（主裂纹 + 细碎皲裂） */
+const GRID_IMG=new Image();GRID_IMG.crossOrigin='anonymous';GRID_IMG.src=IMG.grid;
+const MOTIFS_PREP=[];
+const MOTIF_IMGS=[];
+let shelfOpen=false,shelfSel=-1,motifSize=1,motifRot=0;
+GRID_IMG.onload=()=>{
+  const W=GRID_IMG.width,H=GRID_IMG.height;
+  const cv=document.createElement('canvas');cv.width=W;cv.height=H;
+  const x=cv.getContext('2d');x.drawImage(GRID_IMG,0,0);
+  const id=x.getImageData(0,0,W,H),d=id.data;
+  const dark=i=>d[i]<120&&d[i+3]>120;
+  let top=H,bot=0,left=W,right=0;
+  for(let y=0;y<H;y+=2){let cnt=0;for(let px=0;px<W;px+=2){if(dark((y*W+px)*4))cnt++;}if(cnt>W/45){top=Math.min(top,y);bot=Math.max(bot,y);}}
+  for(let px=0;px<W;px+=2){let cnt=0;for(let y=0;y<H;y+=2){if(dark((y*W+px)*4))cnt++;}if(cnt>H/45){left=Math.min(left,px);right=Math.max(right,px);}}
+  if(right-left<20||bot-top<20){left=0;top=0;right=W;bot=H;}
+  const cell=(right-left+1)/3;
+  for(let r=0;r<4;r++)for(let c=0;c<3;c++){
+    const cv2=document.createElement('canvas');cv2.width=cell;cv2.height=cell;
+    const x2=cv2.getContext('2d');
+    x2.drawImage(GRID_IMG,left+c*cell,top+r*cell,cell,cell,0,0,cell,cell);
+    const url=cv2.toDataURL('image/png');
+    MOTIFS_PREP.push(url);
+    const im=new Image();im.src=url;MOTIF_IMGS.push(im);
+  }
+  buildShelf();
+};
+function buildShelf(){
+  $('#shelfGrid').innerHTML=MOTIFS_PREP.map((u,i)=>`<button class="shelf-item" data-m="${i}" style="background-image:url('${u}')" type="button" title="纹样 ${i+1}"></button>`).join('');
+  $$('#shelfGrid .shelf-item').forEach(b=>b.addEventListener('click',()=>{
+    shelfSel=shelfSel===+b.dataset.m?-1:+b.dataset.m;
+    $$('#shelfGrid .shelf-item').forEach(x=>x.classList.toggle('on',+x.dataset.m===shelfSel));
+    updateHint();
+  }));
+}
+function updateHint(){
+  if(stampMode){$('#studioHint').textContent='点按画布落章';return;}
+  if(mode==='free'&&shelfSel>=0){$('#studioHint').textContent='点按画布放置纹样（可连续放置）';return;}
+  if(mode==='free'){$('#studioHint').textContent='自由涂鸦 · 底纹 + 纹样库自由组合，蓝白蜡黄随你所想';return;}
+  if(phase==='done'){$('#studioHint').textContent='冰裂纹已成 · 可保存纹样，或重新开始';return;}
+  $('#studioHint').textContent=artBgIdx>0?'线稿已上布 · 以蜡为笔划出纹样，再入缸浸染':'以蜡为笔 · 可选线稿底图，划蜡后浸染';
+}
+let mode='craft',phase='wax',fabricT=0,crackT=0;
+let strokesCraft=[],strokesFree=[],cracks=[];
+let cur=null,drawing=false,stampMode=null;
+let brushColor='wax',brushSize=1,freeBg=0,userArt=null,artSaved=false;
+const curStrokes=()=>mode==='craft'?strokesCraft:strokesFree;
+function sizeStudio(){
+  const wrap=stud.parentElement;
+  let w=wrap.clientWidth,h=wrap.clientHeight;
+  if(w>h*3/4){w=h*3/4;}else{h=w*4/3;}
+  stud.style.width=w+'px';stud.style.height=h+'px';
+  stud.width=Math.round(w*devicePixelRatio);stud.height=Math.round(h*devicePixelRatio);
+  render();
+}
+function toLogical(e){
+  const r=stud.getBoundingClientRect();
+  return [(e.clientX-r.left)/r.width*LOGW,(e.clientY-r.top)/r.height*LOGH];
+}
+function render(){
+  sctx.setTransform(stud.width/LOGW,0,0,stud.height/LOGH,0,0);
+  sctx.clearRect(0,0,LOGW,LOGH);
+  if(mode==='craft'){
+    sctx.fillStyle=lerpColor(FABRIC_A,FABRIC_B,fabricT);
+    sctx.fillRect(0,0,LOGW,LOGH);
+    sctx.fillStyle='rgba(255,255,255,.018)';
+    for(let i=0;i<26;i++){sctx.fillRect(rand(0,LOGW),rand(0,LOGH),rand(30,120),1.2);}
+    if(artBgIdx>0&&artBgPrep[artBgIdx]){
+      const ab=artBgPrep[artBgIdx];
+      sctx.globalAlpha=1-fabricT;sctx.drawImage(ab.orig,0,0,LOGW,LOGH);
+      sctx.globalAlpha=fabricT;sctx.drawImage(ab.dyed,0,0,LOGW,LOGH);
+      sctx.globalAlpha=1;
+    }
+    strokesCraft.forEach(s=>{
+      sctx.beginPath();
+      s.pts.forEach((p,i)=>i?sctx.lineTo(p[0],p[1]):sctx.moveTo(p[0],p[1]));
+      sctx.strokeStyle=phase!=='wax'?CREAM_LINE:COLOR_HEX[s.c];
+      sctx.lineWidth=s.w; sctx.lineCap='round';sctx.lineJoin='round';
+      sctx.stroke();
+    });
+    if(phase==='crack'||phase==='done'){
+      sctx.lineCap='round';
+      const total=cracks.reduce((a,c)=>a+c.pts.length,0);
+      let n=Math.floor(total*crackT);
+      cracks.forEach(c=>{
+        sctx.beginPath();
+        sctx.strokeStyle=c.w>1?'rgba(178,205,230,.52)':'rgba(178,205,230,.34)';
+        sctx.lineWidth=c.w;
+        c.pts.forEach((p,i)=>{
+          if(n<=0)return;
+          i?sctx.lineTo(p[0],p[1]):sctx.moveTo(p[0],p[1]);
+          n--;
+        });
+        sctx.stroke();
+      });
+    }
+  }else{
+    const bg=PAT_IMGS[freeBg];
+    if(bg.complete){
+      const sc=Math.max(LOGW/bg.width,LOGH/bg.height);
+      const dw=bg.width*sc,dh=bg.height*sc;
+      sctx.globalAlpha=.9;
+      sctx.drawImage(bg,(LOGW-dw)/2,(LOGH-dh)/2,dw,dh);
+      sctx.globalAlpha=1;
+    }else{sctx.fillStyle='#203448';sctx.fillRect(0,0,LOGW,LOGH);}
+    strokesFree.forEach(s=>{
+      if(s.type==='motif'){
+        if(!s.img)return;
+        sctx.save();
+        sctx.translate(s.x,s.y);sctx.rotate(s.rot);sctx.translate(-s.w/2,-s.w/2);
+        sctx.drawImage(s.img,0,0,s.w,s.w);
+        sctx.restore();
+        return;
+      }
+      sctx.beginPath();
+      s.pts.forEach((p,i)=>i?sctx.lineTo(p[0],p[1]):sctx.moveTo(p[0],p[1]));
+      sctx.strokeStyle=COLOR_RGBA[s.c];
+      sctx.lineWidth=s.w*2.2;sctx.lineCap='round';sctx.lineJoin='round';
+      sctx.stroke();
+    });
+  }
+}
+/* 笔触输入 */
+stud.addEventListener('pointerdown',e=>{
+  e.preventDefault();
+  stud.setPointerCapture(e.pointerId);
+  drawing=true;
+  const p=toLogical(e);
+  if(stampMode){placeStamp(p);drawing=false;return;}
+  if(mode==='free'&&shelfSel>=0&&MOTIF_IMGS[shelfSel]){
+    const sizes=[170,240,320];
+    strokesFree.push({type:'motif',img:MOTIF_IMGS[shelfSel],x:p[0],y:p[1],w:sizes[motifSize],rot:motifRot*Math.PI/180});
+    render();
+    return;
+  }
+  curStrokes().push({pts:[p],w:brushSize*4+4,c:brushColor});
+  cur=curStrokes()[curStrokes().length-1];
+  render();
+});
+stud.addEventListener('pointermove',e=>{
+  if(!drawing||!cur||stampMode)return;
+  const p=toLogical(e);
+  const last=cur.pts[cur.pts.length-1];
+  if(Math.hypot(p[0]-last[0],p[1]-last[1])>3){cur.pts.push(p);render();}
+});
+stud.addEventListener('pointerup',()=>{drawing=false;cur=null;render();});
+stud.addEventListener('pointercancel',()=>{drawing=false;cur=null;});
+/* 印章 */
+function stampSun(c,r){
+  const out=[];
+  const ring=(rad,seg,w)=>{const p=[];for(let i=0;i<=seg;i++){const a=i/seg*Math.PI*2;p.push([c[0]+Math.cos(a)*rad,c[1]+Math.sin(a)*rad]);}out.push({pts:p,w,c:'wax'});};
+  ring(5,22,4);ring(r*.55,46,2.6);
+  for(let i=0;i<12;i++){
+    const a=i/12*Math.PI*2;
+    out.push({pts:[[c[0]+Math.cos(a)*r*.62,c[1]+Math.sin(a)*r*.62],[c[0]+Math.cos(a)*r,c[1]+Math.sin(a)*r]],w:2.4,c:'wax'});
+  }
+  return out;
+}
+function stampBorder(){
+  const out=[],m=48,step=30;
+  const seg=pts=>out.push({pts,w:1.8,c:'wax'});
+  seg([[m,m],[LOGW-m,m]]);seg([[m,LOGH-m],[LOGW-m,LOGH-m]]);
+  seg([[m,m],[m,LOGH-m]]);seg([[LOGW-m,m],[LOGW-m,LOGH-m]]);
+  for(let x=m;x<=LOGW-m;x+=step){
+    seg([[x,m-10],[x,m+10]]);seg([[x,LOGH-m-10],[x,LOGH-m+10]]);
+    if((x/step)%2===1){seg([[x,m],[x,m+22]]);}
+  }
+  for(let y=m;y<=LOGH-m;y+=step){
+    seg([[m-10,y],[m+10,y]]);seg([[LOGW-m-10,y],[LOGW-m+10,y]]);
+  }
+  return out;
+}
+function placeStamp(p){
+  const target=curStrokes();
+  if(stampMode==='sun')target.push(...stampSun(p,150));
+  else if(stampMode==='border')target.push(...stampBorder());
+  stampMode=null;updateStampBtns();render();
+}
+/* 步骤与操作条 */
+const STEP_ORDER=['wax','dye','crack','done'];
+function updateSteps(){
+  const idx=STEP_ORDER.indexOf(phase);
+  $$('#steps .step').forEach((st,i)=>{
+    st.classList.toggle('on',i===idx&&phase!=='done');
+    st.classList.toggle('done',i<idx||phase==='done');
+  });
+}
+function updateAction(){
+  const row=$('#btnAction').parentElement;
+  let html;
+  if(mode==='free'){
+    html='<button class="act-btn" id="btnUndo" type="button">撤销</button><button class="act-btn" id="btnClear" type="button">清空</button><button class="act-btn main" id="btnAction" type="button">保存涂鸦</button>';
+  }else if(phase==='wax'){
+    html='<button class="act-btn" id="btnUndo" type="button">撤销</button><button class="act-btn" id="btnClear" type="button">清空</button><button class="act-btn main" id="btnAction" type="button">浸染</button>';
+  }else if(phase==='dye'){
+    html='<button class="act-btn" id="btnUndo" disabled type="button">撤销</button><button class="act-btn" id="btnClear" disabled type="button">清空</button><button class="act-btn main" id="btnAction" disabled type="button">浸染中…</button>';
+  }else if(phase==='crack'){
+    html='<button class="act-btn" id="btnUndo" disabled type="button">撤销</button><button class="act-btn" id="btnClear" disabled type="button">清空</button><button class="act-btn main" id="btnAction" type="button">冰裂</button>';
+  }else{
+    html='<button class="act-btn" id="btnRe" type="button">重新开始</button><button class="act-btn main" id="btnAction" type="button">保存纹样</button>';
+  }
+  row.innerHTML=html;bindActionRow();
+}
+function bindActionRow(){
+  const row=$('#btnAction').parentElement;
+  const u=row.querySelector('#btnUndo');if(u)u.addEventListener('click',undo);
+  const cl=row.querySelector('#btnClear');if(cl)cl.addEventListener('click',clearAll);
+  const a=row.querySelector('#btnAction');if(a)a.addEventListener('click',onAction);
+  const re=row.querySelector('#btnRe');if(re)re.addEventListener('click',resetCraft);
+}
+function undo(){curStrokes().pop();render();}
+function clearAll(){curStrokes().length=0;if(mode==='craft')cracks=[];render();}
+function resetCraft(){
+  strokesCraft=[];cracks=[];fabricT=0;crackT=0;
+  phase='wax';artSaved=false;updateSteps();updateAction();render();
+  updateHint();
+}
+function anim(dur,fn){
+  const t0=performance.now();
+  (function f(t){
+    const k=clamp((t-t0)/dur,0,1);
+    const e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+    fn(e,k>=1);
+    if(k<1)requestAnimationFrame(f);
+  })(t0);
+}
+function startDye(){
+  if(strokesCraft.length===0&&artBgIdx===0){toast('先划几笔蜡或选一张底图，再入缸浸染');return;}
+  phase='dye';updateSteps();updateAction();
+  anim(1500,(t,done)=>{
+    fabricT=t;render();
+    if(done){phase='crack';updateSteps();updateAction();toast('蜡痕防染，蓝底已成 —— 揉布成冰裂');}
+  });
+}
+function generateCracks(){
+  cracks=[];
+  const n=clamp(Math.floor(LOGW/64),12,24);
+  for(let i=0;i<n;i++){
+    const line=[];let x=rand(70,LOGW-70),y=rand(70,LOGH-70),a=rand(0,Math.PI*2);
+    let d=0;const len=rand(120,340);
+    while(d<len){
+      a+=rand(-.55,.55);const st=rand(9,22);
+      x+=Math.cos(a)*st;y+=Math.sin(a)*st;
+      line.push([x,y]);d+=st;
+      if(x<32||x>LOGW-32||y<32||y>LOGH-32)break;
+      if(Math.random()<.32&&line.length<22){
+        let bx=x,by=y,ba=a+rand(1,2.6);
+        const bl=rand(40,110);let bd=0;
+        while(bd<bl){ba+=rand(-.5,.5);const bs=rand(7,15);bx+=Math.cos(ba)*bs;by+=Math.sin(ba)*bs;line.push([bx,by]);bd+=bs;}
+        break;
+      }
+    }
+    cracks.push({pts:line,w:rand(1.3,1.9)});
+  }
+  for(let i=0;i<30;i++){
+    const line=[];let x=rand(50,LOGW-50),y=rand(50,LOGH-50),a=rand(0,Math.PI*2);
+    const len=rand(35,100);let d=0;
+    while(d<len){a+=rand(-.4,.4);const st=rand(6,13);x+=Math.cos(a)*st;y+=Math.sin(a)*st;line.push([x,y]);d+=st;}
+    cracks.push({pts:line,w:rand(.7,1)});
+  }
+}
+function startCrack(){
+  if(strokesCraft.length===0&&artBgIdx===0){toast('布上空空如也，先划几笔蜡或选底图吧');return;}
+  generateCracks();crackT=0;updateAction();
+  anim(1700,(t,done)=>{
+    crackT=t;render();
+    if(done){phase='done';updateSteps();updateAction();toast('冰裂纹已成 · 你的纹样完成了');}
+  });
+}
+function saveArt(tag){
+  userArt=stud.toDataURL('image/png');
+  toast(tag==='craft'?'纹样已保存 · 去末章生成专属海报':'涂鸦已保存 · 去末章生成专属海报');
+}
+function onAction(){
+  if(mode==='free')saveArt('free');
+  else if(phase==='wax')startDye();
+  else if(phase==='crack')startCrack();
+  else if(phase==='done')saveArt('craft');
+}
+/* 模式切换 */
+function setMode(m){
+  mode=m;
+  $('#modeCraft').classList.toggle('on',m==='craft');
+  $('#modeFree').classList.toggle('on',m==='free');
+  $('#stampGroup').style.display=m==='craft'?'flex':'none';
+  $('#motifGroup').style.display=m==='free'?'flex':'none';
+  $('#toolRowArtBg').style.display=m==='craft'?'flex':'none';
+  $('#toolRowBg').style.display=m==='free'?'flex':'none';
+  $('#steps').style.display=m==='craft'?'flex':'none';
+  phase='wax';fabricT=0;crackT=0;stampMode=null;updateStampBtns();
+  if(m==='craft'){shelfOpen=false;shelfSel=-1;$('#stampShelf').style.display='none';$('#btnShelf').classList.remove('ready');
+    $$('#shelfGrid .shelf-item').forEach(x=>x.classList.remove('on'));}
+  updateSteps();updateAction();updateHint();sizeStudio();
+}
+$('#modeCraft').addEventListener('click',()=>setMode('craft'));
+$('#modeFree').addEventListener('click',()=>setMode('free'));
+/* 工具栏绑定 */
+$$('.swatch').forEach(s=>s.addEventListener('click',()=>{
+  brushColor=s.dataset.color;
+  $$('.swatch').forEach(x=>x.classList.toggle('on',x===s));
+}));
+$$('.size-btn').forEach(s=>s.addEventListener('click',()=>{
+  brushSize=+s.dataset.size;
+  $$('.size-btn').forEach(x=>x.classList.toggle('on',x===s));
+}));
+function updateStampBtns(){
+  $('#stampSun').classList.toggle('ready',stampMode==='sun');
+  $('#stampBorder').classList.toggle('ready',stampMode==='border');
+}
+$('#stampSun').addEventListener('click',()=>{
+  stampMode=stampMode==='sun'?null:'sun';updateStampBtns();updateHint();
+});
+$('#stampBorder').addEventListener('click',()=>{
+  stampMode=stampMode==='border'?null:'border';updateStampBtns();updateHint();
+});
+$$('#toolRowBg .bg-thumb').forEach(b=>b.addEventListener('click',()=>{
+  freeBg=+b.dataset.bg;
+  $$('#toolRowBg .bg-thumb').forEach(x=>x.classList.toggle('on',x===b));
+  render();
+}));
+/* 工艺模拟 · 底图选择（粘贴线稿上布） */
+$$('#toolRowArtBg .bg-thumb').forEach(b=>b.addEventListener('click',()=>{
+  artBgIdx=+b.dataset.art;
+  $$('#toolRowArtBg .bg-thumb').forEach(x=>x.classList.toggle('on',x===b));
+  if(artBgIdx>0&&!artBgPrep[artBgIdx])prepArtBg(artBgIdx);
+  updateHint();render();
+}));
+/* 自由涂鸦 · 纹样库 */
+$('#btnShelf').addEventListener('click',()=>{
+  shelfOpen=!shelfOpen;
+  $('#stampShelf').style.display=shelfOpen?'flex':'none';
+  $('#btnShelf').classList.toggle('ready',shelfOpen);
+  if(!shelfOpen){shelfSel=-1;$$('#shelfGrid .shelf-item').forEach(x=>x.classList.remove('on'));}
+  updateHint();
+});
+[['motifSmall',0],['motifMid',1],['motifLarge',2]].forEach(pair=>{
+  document.getElementById(pair[0]).addEventListener('click',function(){
+    motifSize=pair[1];
+    ['motifSmall','motifMid','motifLarge'].forEach(id=>document.getElementById(id).classList.toggle('on',id===pair[0]));
+  });
+});
+$('#motifRot').addEventListener('click',function(){
+  motifRot=(motifRot+45)%360;
+  this.textContent=motifRot>0?'旋转 '+motifRot+'°':'旋转';
+});
+addEventListener('resize',sizeStudio);
+document.fonts&&document.fonts.ready.then(()=>{sizeStudio();});
+/* ===== P6 海报生成 ===== */
+const SLOGANS=['一针密缝，万蓝归心','指尖划蜡，蓝印新生','蓝染乌蒙，纹见山河'];
+let posterBg=0,posterSg=0,posterData=null;
+$('#posterBgSeg').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+  posterBg=+b.dataset.bg;
+  $('#posterBgSeg').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  buildPoster();
+}));
+$('#posterSloganSeg').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+  posterSg=+b.dataset.sg;
+  $('#posterSloganSeg').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  buildPoster();
+}));
+$('#btnGenPoster').addEventListener('click',buildPoster);
+$('#btnDownload').addEventListener('click',e=>{
+  if(!posterData){e.preventDefault();toast('请先点击「生成海报」');return;}
+  e.currentTarget.href=posterData;
+});
+function drawSample(x,ax,ay,aw,ah){
+  const sc=document.createElement('canvas');sc.width=900;sc.height=1200;
+  const sx=sc.getContext('2d');
+  sx.fillStyle='#1A2A3A';sx.fillRect(0,0,900,1200);
+  sx.strokeStyle='#F3ECDD';sx.lineWidth=6;sx.lineCap='round';
+  const c=[450,560];
+  sx.beginPath();sx.arc(c[0],c[1],40,0,Math.PI*2);sx.stroke();
+  sx.beginPath();sx.arc(c[0],c[1],90,0,Math.PI*2);sx.stroke();
+  for(let i=0;i<12;i++){const a=i/12*Math.PI*2;
+    sx.beginPath();sx.moveTo(c[0]+Math.cos(a)*102,c[1]+Math.sin(a)*102);
+    sx.lineTo(c[0]+Math.cos(a)*175,c[1]+Math.sin(a)*175);sx.stroke();
+  }
+  sx.strokeRect(50,50,800,1100);sx.strokeRect(72,72,756,1056);
+  sx.strokeStyle='rgba(178,205,230,.5)';sx.lineWidth=2;
+  for(let i=0;i<10;i++){
+    let px=rand(120,780),py=rand(160,1020),a=rand(0,Math.PI*2);
+    sx.beginPath();sx.moveTo(px,py);
+    for(let j=0;j<6;j++){a+=rand(-.5,.5);px+=Math.cos(a)*rand(20,40);py+=Math.sin(a)*rand(20,40);sx.lineTo(px,py);}
+    sx.stroke();
+  }
+  x.drawImage(sc,ax,ay,aw,ah);
+}
+function buildPoster(){
+  const W=1080,H=1440,cv2=document.createElement('canvas');
+  cv2.width=W;cv2.height=H;
+  const x=cv2.getContext('2d');
+  const bg=PAT_IMGS[posterBg];
+  if(bg.complete){const sc=Math.max(W/bg.width,H/bg.height);const dw=bg.width*sc,dh=bg.height*sc;x.drawImage(bg,(W-dw)/2,(H-dh)/2,dw,dh);}
+  const g=x.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'rgba(16,26,38,.9)');g.addColorStop(.52,'rgba(16,26,38,.55)');g.addColorStop(1,'rgba(16,26,38,.93)');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(229,192,123,.85)';x.lineWidth=3;x.strokeRect(40,40,W-80,H-80);
+  x.strokeStyle='rgba(243,236,221,.5)';x.lineWidth=1.5;x.strokeRect(54,54,W-108,H-108);
+  x.textAlign='center';
+  x.fillStyle='#E5C07B';x.font='700 88px "Noto Serif SC","Songti SC",serif';
+  x.fillText('密缝与蓝印',W/2,238);
+  x.fillStyle='#C6BFAE';x.font='400 32px "Noto Sans SC","PingFang SC",sans-serif';
+  x.fillText('昭通蜡染的文化基因与现代新生',W/2,304);
+  const aw=660,ah=820,ax=(W-aw)/2,ay=430;
+  const finish=art=>{
+    x.fillStyle='#F3ECDD';x.fillRect(ax-12,ay-12,aw+24,ah+24);
+    x.fillStyle='#16212E';x.fillRect(ax-6,ay-6,aw+12,ah+12);
+    if(art)x.drawImage(art,ax,ay,aw,ah);else drawSample(x,ax,ay,aw,ah);
+    x.fillStyle='#E5C07B';x.font='700 54px "Noto Serif SC","Songti SC",serif';
+    x.fillText(SLOGANS[posterSg],W/2,1362);
+    x.fillStyle='rgba(198,191,174,.75)';x.font='400 24px "Noto Sans SC","PingFang SC",sans-serif';
+    x.fillText('昭通蜡染活化与创新设计 H5 · 2026',W/2,1402);
+    posterData=cv2.toDataURL('image/png');
+    $('#posterImg').src=posterData;
+    $('#ppNote').textContent=userArt?'已嵌入你的指尖纹样 · 可保存分享':'示例纹样 · 去第三章涂鸦，生成你的专属纹样';
+  };
+  if(userArt){
+    const art=new Image();
+    art.onload=()=>finish(art);
+    art.onerror=()=>finish(null);
+    art.src=userArt;
+  }else{finish(null);}
+}
+/* ===== 启动 ===== */
+updateSteps();updateAction();updateHint();sizeStudio();buildPoster();
+</script>
+</body>
+</html>
